@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class TimelineCollection {
@@ -79,11 +80,11 @@ public class TimelineCollection {
         }
         else if (option.equals("P")||option.equals("p"))
         {
-            searchCast();
+            searchInvolvement();
         }
         else if (option.equals("L")||option.equals("l"))
         {
-            //searchKeywords();
+            listYears();
         }
         else
         {
@@ -119,7 +120,7 @@ public class TimelineCollection {
     }
     private void searchEvents()
     {
-        System.out.print("Enter a tital search term: ");
+        System.out.print("Enter a search term: ");
         String searchTerm = scanner.nextLine();
 
         // prevent case sensitivity
@@ -155,33 +156,38 @@ public class TimelineCollection {
 
             System.out.println("" + choiceNum + ". " + title);
         }
+        if (results.size() == 0) {
+            System.out.println("Sorry there are no results currently");
+            System.out.println("\n ** Press Enter to Return to Main Menu **");
+        } else {
+            System.out.println("Which event would you like to learn more about?");
+            System.out.print("Enter number: ");
 
-        System.out.println("Which event would you like to learn more about?");
-        System.out.print("Enter number: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
-        int choice = scanner.nextInt();
-        scanner.nextLine();
+            Timeline selectedTime = results.get(choice - 1);
 
-        Timeline selectedTime = results.get(choice - 1);
+            displayMovieInfo(selectedTime);
 
-        displayMovieInfo(selectedTime);
-
-        System.out.println("\n ** Press Enter to Return to Main Menu **");
-        scanner.nextLine();
+            System.out.println("\n ** Press Enter to Return to Main Menu **");
+            scanner.nextLine();
+        }
     }
 
-    private void searchCast()
-    {
-        System.out.println("Enter a cast: ");
+    private void searchInvolvement() {
+        System.out.println("Enter a person: ");
         String searchTerm = scanner.nextLine();
+        searchTerm = searchTerm.toLowerCase();
         ArrayList<String> results = new ArrayList<String>();
         for (int i = 0; i < timelines.size(); i++) {
             String cast = timelines.get(i).getInvolve();
-            if (cast.equals(searchTerm)) {
+            cast = cast.toLowerCase();
+            if (cast.contains(searchTerm)) {
                 String temp = timelines.get(i).getInvolve();
                 results.add(temp);
-                }
             }
+        }
         for (int i = 1; i < results.size(); i++) {
             int j = i;
             while (j > 0 && results.get(j - 1).compareTo(results.get(j)) > 0) {
@@ -190,39 +196,74 @@ public class TimelineCollection {
                 j--;
             }
         }
-        for (int i=0; i<results.size()-1;i++){
-            if (results.get(i+1).equals(results.get(i))){
+        for (int i = 0; i < results.size() - 1; i++) {
+            if (results.get(i + 1).equals(results.get(i))) {
                 results.remove(i);
                 i--;
             }
         }
-        for (int i=0;i<results.size();i++){
+        for (int i = 0; i < results.size(); i++) {
             String cast = results.get(i);
-            int choiceNum=i+1;
-            System.out.println(""+choiceNum+". "+cast);
+            int choiceNum = i + 1;
+            System.out.println("" + choiceNum + ". " + cast);
         }
-        System.out.println("Which cast would you like to learn more about?");
-        System.out.println("Enter number: ");
-        int choice = scanner.nextInt();
-        String selectedCast = results.get(choice-1);
-        ArrayList<Timeline>Movie1 = new ArrayList<Timeline>();
-        for (int i=0; i<timelines.size();i++){
-            String casts = timelines.get(i).getInvolve();
-            if (casts.indexOf(selectedCast)!=-1){
-                Movie1.add(timelines.get(i));
+        if (results.size() == 0) {
+            System.out.println("Sorry there are no results currently");
+            System.out.println("\n ** Press Enter to Return to Main Menu **");
+        } else {
+            System.out.println("Who would you like to learn more about?");
+            System.out.println("Enter number: ");
+            int choice = scanner.nextInt();
+            String selectedCast = results.get(choice - 1);
+            ArrayList<Timeline> Movie1 = new ArrayList<Timeline>();
+            for (int i = 0; i < timelines.size(); i++) {
+                String casts = timelines.get(i).getInvolve();
+                if (casts.indexOf(selectedCast) != -1) {
+                    Movie1.add(timelines.get(i));
+                }
             }
+            sortResults(Movie1);
+            for (int i = 0; i < Movie1.size(); i++) {
+                String title = Movie1.get(i).getName();
+                int choiceNum = i + 1;
+                System.out.println("" + choiceNum + ". " + title);
+            }
+
+            System.out.println("Which event would you like to learn more about?");
+            System.out.println("Enter number: ");
+            int choices = scanner.nextInt();
+            Timeline selectedTime = Movie1.get(choices - 1);
+
+            displayMovieInfo(selectedTime);
+
+            System.out.println("\n ** Press Enter to Return to Main Menu **");
+
+            scanner.nextLine();
         }
-        sortResults(Movie1);
-        for (int i=0;i<Movie1.size();i++){
-            String title = Movie1.get(i).getName();
-            int choiceNum = i+1;
-            System.out.println(""+choiceNum+". "+title);
+    }
+
+    private void listYears()
+    {
+        ArrayList<Timeline>results= new ArrayList<Timeline>();
+        for (int i=0;i<timelines.size();i++){
+            int temp = timelines.get(i).getYear();
+            int x = 0;
+            while (x<results.size()&&temp>results.get(x).getYear()){
+                x++;
+            }
+            results.add(x,timelines.get(i));
         }
-        System.out.println("Which movie would you like to learn more about?");
+
+        for (int i=0;i<results.size();i++){
+            int year = results.get(i).getYear();
+            int choiceNum=i+1;
+            System.out.println(""+choiceNum+". "+year+" "+results.get(i).getName());
+        }
+        System.out.println("Which event would you like to learn more about?");
         System.out.println("Enter number: ");
         int choices = scanner.nextInt();
-        Timeline selectedTime = Movie1.get(choices-1);
-        displayMovieInfo(selectedTime);
+        Timeline selectedTimeline = results.get(choices-1);
+        displayMovieInfo(selectedTimeline);
         System.out.println("\n ** Press Enter to Return to Main Menu **");
         scanner.nextLine();
     }
