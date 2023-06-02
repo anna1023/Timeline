@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class MainGUIWindow extends JFrame implements ActionListener{
+    private JFrame frame;
     private JPanel mainPanel;
     private JButton loadTimelineButton;
     private JButton searchByPeopleButton;
@@ -23,7 +24,6 @@ public class MainGUIWindow extends JFrame implements ActionListener{
         loadTimelineButton.addActionListener(this);
         searchByEventButton.addActionListener(this);
         searchByPeopleButton.addActionListener(this);
-        addYourOwnEventButton.addActionListener(this);
         this.setVisible(true);
     }
 
@@ -33,7 +33,8 @@ public class MainGUIWindow extends JFrame implements ActionListener{
             JButton button = (JButton) source;
             String text = button.getText();
             if (button == loadTimelineButton) {
-                setContentPane(NewGUI);
+                this.dispose();
+                LoadGUI myWindow = new LoadGUI();
             }
             if (button == searchByEventButton) {
 
@@ -41,11 +42,10 @@ public class MainGUIWindow extends JFrame implements ActionListener{
             if (button == searchByPeopleButton) {
 
             }
-            if (button == addYourOwnEventButton) {
 
             }
 
         }
     }
-    }
+    //}
 
