@@ -8,7 +8,6 @@ public class MainGUIWindow extends JFrame implements ActionListener{
     private JButton loadTimelineButton;
     private JButton searchByPeopleButton;
     private JButton searchByEventButton;
-    private JButton addYourOwnEventButton;
     private JLabel welcome;
 
     public MainGUIWindow(){
@@ -17,7 +16,7 @@ public class MainGUIWindow extends JFrame implements ActionListener{
 
     private void createUIComponents(){
         setContentPane(mainPanel);
-        setTitle("Tip Calculate");
+        setTitle("Timeline App");
         setSize(700,400);
         setLocation(450,100);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -37,15 +36,16 @@ public class MainGUIWindow extends JFrame implements ActionListener{
                 LoadGUI myWindow = new LoadGUI();
             }
             if (button == searchByEventButton) {
-
+                this.dispose();
+                PeopleGUI myWindow = new PeopleGUI(true);
             }
             if (button == searchByPeopleButton) {
-
+                this.dispose();
+                PeopleGUI myWindow = new PeopleGUI(false);
             }
 
             }
 
         }
     }
-    //}
 

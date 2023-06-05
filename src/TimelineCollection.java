@@ -109,15 +109,15 @@ public class TimelineCollection {
         }
     }
 
-    private void displayMovieInfo(Timeline timeline)
+    public String displayMovieInfo(Timeline timeline)
     {
-        System.out.println();
-        System.out.println("Name: " + timeline.getName());
-        System.out.println("Year: " + timeline.getYear());
-        System.out.println("Involvement: "+timeline.getInvolve());
-        System.out.println("Description: " + timeline.getDescription());
-        System.out.println("More information: " + timeline.getMoreInfo());
+        return"Name: " + timeline.getName()+"\n"+ "Year: " + timeline.getYear()+"\n"+ "Involvement: "+timeline.getInvolve()+"\n"+ "Description: " + timeline.getDescription()+"\n"+ "More information: " + timeline.getMoreInfo();
     }
+
+    public ArrayList<Timeline> getTimelines() {
+        return timelines;
+    }
+
     private void searchEvents()
     {
         System.out.print("Enter a search term: ");
