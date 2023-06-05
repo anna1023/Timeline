@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class PeopleGUI extends JFrame implements ActionListener {
     private JLabel People;
@@ -9,10 +10,12 @@ public class PeopleGUI extends JFrame implements ActionListener {
     private boolean event;
     private JPanel mainPanel;
     private JButton searchButton;
+    private TimelineCollection timeline;
 
     public PeopleGUI(boolean event) {
         this.event = event;
         createUIComponents();
+        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
     }
 
     private void createUIComponents() {
@@ -38,9 +41,23 @@ public class PeopleGUI extends JFrame implements ActionListener {
                 MainGUIWindow myWindow = new MainGUIWindow();
             }
             if (button == searchButton && event) {
+               ArrayList times=timeline.searchEvents(textField1.getText());
+               if(times.size()==0){
+                   textField1.setText("There are no results currently.");
+               }
+               else{
 
+
+               }
             }
             if (button == searchButton && !event) {
+                ArrayList times = timeline.searchInvolvement("name");
+                if(times.size()==0){
+
+                }
+                else{
+
+                }
 
             }
         }

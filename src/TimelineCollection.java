@@ -76,11 +76,11 @@ public class TimelineCollection {
     {
         if (option.equals("S")||option.equals("s"))
         {
-            searchEvents();
+            searchEvents("stuff");
         }
         else if (option.equals("P")||option.equals("p"))
         {
-            searchInvolvement();
+            searchInvolvement("stuff");
         }
         else if (option.equals("L")||option.equals("l"))
         {
@@ -111,20 +111,18 @@ public class TimelineCollection {
 
     public String displayMovieInfo(Timeline timeline)
     {
-        return"Name: " + timeline.getName()+"\n"+ "Year: " + timeline.getYear()+"\n"+ "Involvement: "+timeline.getInvolve()+"\n"+ "Description: " + timeline.getDescription()+"\n"+ "More information: " + timeline.getMoreInfo();
+        return "<html><body style=\"width:500px\">Name: " + timeline.getName()+ "<br>"+"Year: " + timeline.getYear()+"<br>"+ "Involvement: "+timeline.getInvolve()+"<br>"+ "Description: " + timeline.getDescription()+"<br>"+ "More information: " + timeline.getMoreInfo() + "</body></html>";
     }
 
     public ArrayList<Timeline> getTimelines() {
         return timelines;
     }
 
-    private void searchEvents()
+    public ArrayList<Timeline> searchEvents(String something)
     {
-        System.out.print("Enter a search term: ");
-        String searchTerm = scanner.nextLine();
 
         // prevent case sensitivity
-        searchTerm = searchTerm.toLowerCase();
+        something = something.toLowerCase();
 
         // arraylist to hold search results
         ArrayList<Timeline> results = new ArrayList<Timeline>();
@@ -135,7 +133,7 @@ public class TimelineCollection {
             String event = timelines.get(i).getName();
             event = event.toLowerCase();
 
-            if (event.indexOf(searchTerm)!=-1)
+            if (event.indexOf(something)!=-1)
             {
                 //add the Movie objest to the results list
                 results.add(timelines.get(i));
@@ -145,45 +143,46 @@ public class TimelineCollection {
 
         // sort the results by title
         sortResults(results);
+        return results;
 
         // now, display them all to the user
-        for (int i = 0; i < results.size(); i++)
-        {
-            String title = results.get(i).getName();
+       // for (int i = 0; i < results.size(); i++)
+      //  {
+           // String title = results.get(i).getName();
 
             // this will print index 0 as choice 1 in the results list; better for user!
-            int choiceNum = i + 1;
+           // int choiceNum = i + 1;
 
-            System.out.println("" + choiceNum + ". " + title);
-        }
-        if (results.size() == 0) {
-            System.out.println("Sorry there are no results currently");
-            System.out.println("\n ** Press Enter to Return to Main Menu **");
-        } else {
-            System.out.println("Which event would you like to learn more about?");
-            System.out.print("Enter number: ");
+           // System.out.println("" + choiceNum + ". " + title);
+       // }
+       //if (results.size() == 0) {
+           // System.out.println("Sorry there are no results currently");
+            //System.out.println("\n ** Press Enter to Return to Main Menu **");
+      //  } else {
+           // System.out.println("Which event would you like to learn more about?");
+           //System.out.print("Enter number: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            //int choice = scanner.nextInt();
+            //scanner.nextLine();
 
-            Timeline selectedTime = results.get(choice - 1);
+           // Timeline selectedTime = results.get(choice - 1);
 
-            displayMovieInfo(selectedTime);
+           // displayMovieInfo(selectedTime);
 
-            System.out.println("\n ** Press Enter to Return to Main Menu **");
-            scanner.nextLine();
-        }
+           // System.out.println("\n ** Press Enter to Return to Main Menu **");
+           // scanner.nextLine();
+       // }
     }
 
-    private void searchInvolvement() {
-        System.out.println("Enter a person: ");
-        String searchTerm = scanner.nextLine();
-        searchTerm = searchTerm.toLowerCase();
+    public ArrayList<String> searchInvolvement(String name) {
+        //System.out.println("Enter a person: ");
+        //String searchTerm = scanner.nextLine();
+        name = name.toLowerCase();
         ArrayList<String> results = new ArrayList<String>();
         for (int i = 0; i < timelines.size(); i++) {
             String cast = timelines.get(i).getInvolve();
             cast = cast.toLowerCase();
-            if (cast.contains(searchTerm)) {
+            if (cast.contains(name)) {
                 String temp = timelines.get(i).getInvolve();
                 results.add(temp);
             }
@@ -202,44 +201,46 @@ public class TimelineCollection {
                 i--;
             }
         }
-        for (int i = 0; i < results.size(); i++) {
-            String cast = results.get(i);
-            int choiceNum = i + 1;
-            System.out.println("" + choiceNum + ". " + cast);
-        }
-        if (results.size() == 0) {
-            System.out.println("Sorry there are no results currently");
-            System.out.println("\n ** Press Enter to Return to Main Menu **");
-        } else {
-            System.out.println("Who would you like to learn more about?");
-            System.out.println("Enter number: ");
-            int choice = scanner.nextInt();
-            String selectedCast = results.get(choice - 1);
-            ArrayList<Timeline> Movie1 = new ArrayList<Timeline>();
-            for (int i = 0; i < timelines.size(); i++) {
-                String casts = timelines.get(i).getInvolve();
-                if (casts.indexOf(selectedCast) != -1) {
-                    Movie1.add(timelines.get(i));
-                }
-            }
-            sortResults(Movie1);
-            for (int i = 0; i < Movie1.size(); i++) {
-                String title = Movie1.get(i).getName();
-                int choiceNum = i + 1;
-                System.out.println("" + choiceNum + ". " + title);
-            }
+        return results;
 
-            System.out.println("Which event would you like to learn more about?");
-            System.out.println("Enter number: ");
-            int choices = scanner.nextInt();
-            Timeline selectedTime = Movie1.get(choices - 1);
+       // for (int i = 0; i < results.size(); i++) {
+         //   String cast = results.get(i);
+         //   int choiceNum = i + 1;
+          //  System.out.println("" + choiceNum + ". " + cast);
+      //  }
+       // if (results.size() == 0) {
+         //   System.out.println("Sorry there are no results currently");
+         ///   System.out.println("\n ** Press Enter to Return to Main Menu **");
+       // } else {
+           // System.out.println("Who would you like to learn more about?");
+           // System.out.println("Enter number: ");
+           // int choice = scanner.nextInt();
+           // String selectedCast = results.get(choice - 1);
+            //ArrayList<Timeline> Movie1 = new ArrayList<Timeline>();
+          //  for (int i = 0; i < timelines.size(); i++) {
+           //     String casts = timelines.get(i).getInvolve();
+             //   if (casts.indexOf(selectedCast) != -1) {
+               //     Movie1.add(timelines.get(i));
+              //  }
+         //   }
+          //  sortResults(Movie1);
+          //  for (int i = 0; i < Movie1.size(); i++) {
+             //   String title = Movie1.get(i).getName();
+              //  int choiceNum = i + 1;
+              //  System.out.println("" + choiceNum + ". " + title);
+         //   }
 
-            displayMovieInfo(selectedTime);
+          //  System.out.println("Which event would you like to learn more about?");
+          //  System.out.println("Enter number: ");
+           // int choices = scanner.nextInt();
+          //  Timeline selectedTime = Movie1.get(choices - 1);
 
-            System.out.println("\n ** Press Enter to Return to Main Menu **");
+          //  displayMovieInfo(selectedTime);
 
-            scanner.nextLine();
-        }
+          //  System.out.println("\n ** Press Enter to Return to Main Menu **");
+
+          //  scanner.nextLine();
+       // }
     }
 
     private void listYears()

@@ -9,17 +9,18 @@ public class InfoGUI extends JFrame {
     private int years;
 
     public InfoGUI(int years){
+        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
         this.years = years;
         createUIComponents();
-        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
     }
 
     private void createUIComponents(){
+        setContentPane(panel1);
         setTitle("Tip Calculate");
         setInfo();
-        setSize(700, 700);
+        setSize(700, 200);
         setLocation(450, 100);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setVisible(true);
     }
 

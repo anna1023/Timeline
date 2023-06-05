@@ -59,7 +59,7 @@ public class LoadGUI extends JFrame implements ActionListener {
         if (source instanceof JButton) {
             JButton button = (JButton) source;
             if (button == a1914) {
-
+                info(1914);
             }
             if (button == a1919) {
                 info(1919);
@@ -117,27 +117,7 @@ public class LoadGUI extends JFrame implements ActionListener {
             }
         }
     }
-    public void info (int years){
-        JFrame year = new JFrame("year");
-        setSize(700, 700);
-        setLocation(450, 100);
-        year.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        year.setLayout(new BorderLayout());
-        year.setVisible(true);
-        ArrayList<Timeline> timess=timeline.getTimelines();
-        boolean time = false;
-        int i = 0;
-        while (time!=true){
-            int timeYear=timess.get(i).getYear();
-            if(timeYear==years){
-                time=true;
-            }
-            else{
-                i++;
-            }
-        }
-        Timeline finalTime = timess.get(i);
-        JLabel name = new JLabel();
-        name.setText(timeline.displayMovieInfo(finalTime));
+    public void info (int years) {
+        new InfoGUI(years);
     }
 }
