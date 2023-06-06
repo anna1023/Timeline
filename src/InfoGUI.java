@@ -19,7 +19,7 @@ public class InfoGUI extends JFrame {
         setTitle("Tip Calculate");
         setInfo();
         setSize(700, 200);
-        setLocation(450, 100);
+        setLocation(450, 200);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         this.setVisible(true);
     }

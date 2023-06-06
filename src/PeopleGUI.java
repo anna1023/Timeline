@@ -46,17 +46,18 @@ public class PeopleGUI extends JFrame implements ActionListener {
                    textField1.setText("There are no results currently.");
                }
                else{
-
-
+                   this.dispose();
+                   SearchGUI myWindow = new SearchGUI(times);
                }
             }
             if (button == searchButton && !event) {
                 ArrayList times = timeline.searchInvolvement("name");
                 if(times.size()==0){
-
+                    textField1.setText("There are no results currently.");
                 }
                 else{
-
+                    this.dispose();
+                    SearchGUI myWindow = new SearchGUI(times);
                 }
 
             }
