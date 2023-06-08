@@ -53,6 +53,7 @@ public class LoadGUI extends JFrame implements ActionListener {
             y+=50;
             newtime.setVisible(true);
             buttonPanel.add(newtime);
+            buttonList.add(newtime);
         }
         buttonPanel.add(backButton);
         Scrollpane.setViewport(viewport);

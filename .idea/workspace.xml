@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4120fc20-ff49-451e-9068-faed2a61cbe7" name="Changes" comment="7">
-      <change afterPath="$PROJECT_DIR$/src/Timeline Data - Sheet2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InfoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PeopleGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Timeline Data - Sheet1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TimelineRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimelineRunner.java" afterDir="false" />
-    </list>
+    <list default="true" id="4120fc20-ff49-451e-9068-faed2a61cbe7" name="Changes" comment="8" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686182709274</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="8">
+      <created>1686203015134</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686203015134</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,7 +106,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4" />
     <MESSAGE value="7" />
-    <option name="LAST_COMMIT_MESSAGE" value="7" />
+    <MESSAGE value="8" />
+    <option name="LAST_COMMIT_MESSAGE" value="8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
