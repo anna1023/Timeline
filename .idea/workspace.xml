@@ -4,18 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4120fc20-ff49-451e-9068-faed2a61cbe7" name="Changes" comment="4">
-      <change afterPath="$PROJECT_DIR$/src/ButtonGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4120fc20-ff49-451e-9068-faed2a61cbe7" name="Changes" comment="7">
+      <change afterPath="$PROJECT_DIR$/src/Timeline Data - Sheet2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InfoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfoGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainGUIWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUIWindow.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainGUIWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainGUIWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PeopleGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/PeopleGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PeopleGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SearchGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ButtonGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PeopleGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SearchGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TimelineCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimelineCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Timeline Data - Sheet1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimelineRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimelineRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +51,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kelly\IdeaProjects\Timeline\src" />
       <recent name="C:\Users\BT_3W2_28\IdeaProjects\Timeline\src" />
     </key>
   </component>
@@ -86,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685937773987</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="7">
+      <created>1686182709274</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686182709274</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,14 +108,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4" />
-    <option name="LAST_COMMIT_MESSAGE" value="4" />
+    <MESSAGE value="7" />
+    <option name="LAST_COMMIT_MESSAGE" value="7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/TimelineRunner.java</url>
-          <line>1</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

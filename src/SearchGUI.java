@@ -15,7 +15,7 @@ public class SearchGUI extends JFrame implements ActionListener {
     public SearchGUI(boolean event) {
         this.event = event;
         createUIComponents();
-        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
+        timeline = new TimelineCollection("src/Timeline Data - Sheet2.csv");
     }
 
     private void createUIComponents() {

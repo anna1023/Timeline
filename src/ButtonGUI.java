@@ -27,7 +27,7 @@ public class ButtonGUI extends JFrame implements ActionListener {
         backButton.addActionListener(this);
         results.setBounds(282,10,300,100);
         int y = 60;
-        for(int i = 0;i<times.size();i++){
+        for(int i = 0;i<times.size();i++){ //auto generate buttons
             JButton ne = new JButton();
             ne.setText(""+times.get(i).getYear()+" "+times.get(i).getName());
             ne.addActionListener(this);
@@ -50,7 +50,7 @@ public class ButtonGUI extends JFrame implements ActionListener {
                 SearchGUI myWindow = new SearchGUI(true);
             }
             else{
-                for(int i=0; i<buttonList.size();i++){
+                for(int i=0; i<buttonList.size();i++){ //parse the button to get int for info parameter
                     if(button==buttonList.get(i)){
                         String name = buttonList.get(i).getText();
                         int where = name.indexOf("1");

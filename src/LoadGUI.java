@@ -5,29 +5,22 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class LoadGUI extends JFrame implements ActionListener {
-    private JButton a1914;
-    private JButton a1998;
-    private JButton a1991;
-    private JButton a1972;
-    private JButton a1969;
-    private JButton a1919;
-    private JButton a1929;
-    private JButton a1963;
-    private JButton a1964;
-    private JButton a1961;
-    private JButton a1955;
-    private JButton a1950;
-    private JButton a1945;
-    private JButton a1939;
     private JButton backButton;
     private JPanel mainPanel;
+    private JScrollPane Scrollpane;
     private TimelineCollection timeline;
+    private ArrayList<JButton> buttonList;
+    private ArrayList<Timeline> sorted;
 
 
 
     public LoadGUI() {
+        timeline = new TimelineCollection("src/Timeline Data - Sheet2.csv");
+        buttonList = new ArrayList<JButton>();
+        sorted = new ArrayList<Timeline>();
+        backButton = new JButton();
+        backButton.setText("Back");
         createUIComponents();
-        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
     }
 
     private void createUIComponents() {
@@ -36,20 +29,35 @@ public class LoadGUI extends JFrame implements ActionListener {
         setSize(700, 700);
         setLocation(450, 100);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        a1914.addActionListener(this);
-        a1998.addActionListener(this);
-        a1991.addActionListener(this);
-        a1972.addActionListener(this);
-        a1969.addActionListener(this);
-        a1919.addActionListener(this);
-        a1929.addActionListener(this);
-        a1963.addActionListener(this);
-        a1964.addActionListener(this);
-        a1961.addActionListener(this);
-        a1955.addActionListener(this);
-        a1950.addActionListener(this);
-        a1945.addActionListener(this);
-        a1939.addActionListener(this);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(0,1,10,10));
+        JViewport viewport = new JViewport();
+        viewport.setSize(700,700);
+        viewport.add(buttonPanel);
+        int y = -30;
+        ArrayList<Timeline> year = timeline.getTimelines();
+        for(int x = 0; x<year.size();x++){ //sort the list
+            int temp = year.get(x).getYear();
+            int z = 0;
+            while (z<sorted.size()&&temp>sorted.get(z).getYear()){
+                z++;
+            }
+            sorted.add(z,year.get(x));
+        }
+        for(int i =0; i<sorted.size();i++){  //create a buttons
+            JButton newtime = new JButton();
+            newtime.setText(sorted.get(i).getYear()+" "+sorted.get(i).getName());
+            newtime.addActionListener(this);
+            newtime.setLayout(null);
+            newtime.setBounds(0,y+30,700,40);
+            y+=50;
+            newtime.setVisible(true);
+            buttonPanel.add(newtime);
+        }
+        buttonPanel.add(backButton);
+        Scrollpane.setViewport(viewport);
+        Scrollpane.getVerticalScrollBar().setUnitIncrement(10);
+        backButton.setBounds(0,y,700,40);
         backButton.addActionListener(this);
         this.setVisible(true);
     }
@@ -58,62 +66,19 @@ public class LoadGUI extends JFrame implements ActionListener {
         Object source = e.getSource();
         if (source instanceof JButton) {
             JButton button = (JButton) source;
-            if (button == a1914) {
-                info(1914);
-            }
-            if (button == a1919) {
-                info(1919);
-
-            }
-            if (button == a1929) {
-                info(1929);
-            }
-            if (button == a1939) {
-                info(1939);
-
-            }
-            if (button == a1945) {
-                info(1945);
-            }
-            if (button == a1950) {
-                info(1950);
-
-            }
-            if (button == a1955) {
-                info(1955);
-
-            }
-            if (button == a1961) {
-                info(1961);
-
-            }
-            if (button == a1963) {
-                info(1963);
-
-            }
-            if (button == a1964) {
-                info(1964);
-
-            }
-            if (button == a1969) {
-                info(1969);
-
-            }
-            if (button == a1972) {
-                info(1972);
-
-            }
-            if (button == a1991) {
-                info(1991);
-
-            }
-            if (button == a1998) {
-                info(1998);
-
-            }
             if (button == backButton) {
                 this.dispose();
                 MainGUIWindow myWindow = new MainGUIWindow();
+            }
+            else{
+                for(int i=0; i<buttonList.size();i++){
+                    if(button==buttonList.get(i)){
+                        String name = buttonList.get(i).getText();
+                        int where = name.indexOf("1");
+                        int year = Integer.parseInt(name.substring(where,where+4));
+                        info(year);
+                    }
+                }
             }
         }
     }

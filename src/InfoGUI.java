@@ -9,7 +9,7 @@ public class InfoGUI extends JFrame {
     private int years;
 
     public InfoGUI(int years){
-        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
+        timeline = new TimelineCollection("src/Timeline Data - Sheet2.csv");
         this.years = years;
         createUIComponents();
     }
@@ -24,7 +24,8 @@ public class InfoGUI extends JFrame {
         this.setVisible(true);
     }
 
-    public void setInfo() {
+    public void setInfo() { //displays the information by going through the array to find an event with the same year and taking the
+        //information from that year
         ArrayList<Timeline> timess =timeline.getTimelines();
         boolean time = false;
         int i = 0;
