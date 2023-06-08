@@ -16,7 +16,7 @@ public class InfoGUI extends JFrame {
 
     private void createUIComponents(){
         setContentPane(panel1);
-        setTitle("Tip Calculate");
+        setTitle("Timeline App");
         setInfo();
         setSize(700, 200);
         setLocation(450, 200);
@@ -38,6 +38,6 @@ public class InfoGUI extends JFrame {
             }
         }
         Timeline finalTime = timess.get(i);
-        Info.setText(timeline.displayMovieInfo(finalTime));
+        Info.setText(timeline.displayInfo(finalTime));
     }
 }

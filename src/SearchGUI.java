@@ -2,45 +2,34 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
 public class SearchGUI extends JFrame implements ActionListener {
-    private JLabel results;
+    private JLabel People;
+    private JTextField textField1;
     private JButton backButton;
+    private boolean event;
     private JPanel mainPanel;
-    private ArrayList<Timeline> times;
-    private ArrayList<JButton> buttons;
+    private JButton searchButton;
+    private TimelineCollection timeline;
 
-    public SearchGUI(ArrayList<Timeline> times) {
-        this.times = times;
-        ArrayList<JButton> buttons = new ArrayList<JButton>();
+    public SearchGUI(boolean event) {
+        this.event = event;
         createUIComponents();
-
+        timeline = new TimelineCollection("src/Timeline Data - Sheet1.csv");
     }
 
-    public void createUIComponents() {
+    private void createUIComponents() {
         setContentPane(mainPanel);
         setTitle("Timeline App");
-        setSize(700, 700);
+        setSize(400, 400);
         setLocation(450, 100);
+        if (event) {
+            People.setText("What do you want to search?");
+        }
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLayout(null);
-        mainPanel.setLayout(null);
+        searchButton.addActionListener(this);
         backButton.addActionListener(this);
         this.setVisible(true);
-        int x = -20;
-        int y = 180;
-        for(int i = 0;i<times.size();i++){
-            System.out.println(times.get(i).getName());
-            JButton ne = new JButton();
-            ne.setText(""+times.get(i).getYear()+" "+times.get(i).getName()+times.size());
-            ne.addActionListener(this);
-            //ne.setSize(700,70);
-            ne.setLayout(null);
-            ne.setBounds(0,y+30,700,70);
-            x+=50;
-            y+=70;
-            mainPanel.add(ne);
-            buttons.add(ne);
-        }
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -49,14 +38,29 @@ public class SearchGUI extends JFrame implements ActionListener {
             JButton button = (JButton) source;
             if (button == backButton) {
                 this.dispose();
-                PeopleGUI myWindow = new PeopleGUI(true);
+                MainGUIWindow myWindow = new MainGUIWindow();
             }
-            else{
-                //for(int i=0; i<buttons)
+            if (button == searchButton && event) {
+               ArrayList times=timeline.searchEvents(textField1.getText());
+               if(times.size()==0){
+                   textField1.setText("There are no results currently.");
+               }
+               else{
+                   this.dispose();
+                   ButtonGUI myWindow = new ButtonGUI(times);
+               }
             }
+            if (button == searchButton && !event) {
+                ArrayList times = timeline.searchInvolvement(textField1.getText());
+                if(times.size()==0){
+                    textField1.setText("There are no results currently.");
+                }
+                else{
+                    this.dispose();
+                    ButtonGUI myWindow = new ButtonGUI(times);
+                }
 
-
-
+            }
         }
     }
 }

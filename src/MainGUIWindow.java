@@ -37,15 +37,14 @@ public class MainGUIWindow extends JFrame implements ActionListener{
             }
             if (button == searchByEventButton) {
                 this.dispose();
-                PeopleGUI myWindow = new PeopleGUI(true);
+                SearchGUI myWindow = new SearchGUI(true);
             }
             if (button == searchByPeopleButton) {
                 this.dispose();
-                PeopleGUI myWindow = new PeopleGUI(false);
-            }
-
+                SearchGUI myWindow = new SearchGUI(false);
             }
 
         }
-    }
 
+    }
+}

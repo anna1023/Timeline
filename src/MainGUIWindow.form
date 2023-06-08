@@ -16,20 +16,12 @@
           <text value="Load Timeline"/>
         </properties>
       </component>
-      <component id="b3705" class="javax.swing.JButton" binding="searchByPeopleButton" default-binding="true">
-        <constraints>
-          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Search by people"/>
-        </properties>
-      </component>
-      <component id="4e59c" class="javax.swing.JButton" binding="searchByEventButton" default-binding="true">
+      <component id="4e59c" class="javax.swing.JButton" binding="searchByEventButton">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Search by event "/>
+          <text value="Search by Event"/>
         </properties>
       </component>
       <hspacer id="86194">
@@ -55,6 +47,14 @@
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
           <text value="Welcome to the mini Timeline! Would you like to..?"/>
+        </properties>
+      </component>
+      <component id="91ee8" class="javax.swing.JButton" binding="searchByPeopleButton">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Seach by People"/>
         </properties>
       </component>
     </children>
