@@ -8,9 +8,11 @@ public class ButtonGUI extends JFrame implements ActionListener {
     private JPanel mainPanel;
     private ArrayList<Timeline> times;
     private ArrayList<JButton> buttonList;
+    private boolean event;
 
-    public ButtonGUI(ArrayList<Timeline> times) {
+    public ButtonGUI(ArrayList<Timeline> times, boolean event) {
         this.times = times;
+        this.event = event;
         buttonList = new ArrayList<JButton>();
         createUIComponents();
 
@@ -45,9 +47,13 @@ public class ButtonGUI extends JFrame implements ActionListener {
         Object source = e.getSource();
         if (source instanceof JButton) {
             JButton button = (JButton) source;
-            if (button == backButton) {
+            if (button == backButton && event) {
                 this.dispose();
                 SearchGUI myWindow = new SearchGUI(true);
+            }
+            if(button == backButton &&!event){
+                this.dispose();
+                SearchGUI myWindow = new SearchGUI(false);
             }
             else{
                 for(int i=0; i<buttonList.size();i++){ //parse the button to get int for info parameter

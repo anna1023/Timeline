@@ -47,7 +47,7 @@ public class SearchGUI extends JFrame implements ActionListener {
                }
                else{
                    this.dispose();
-                   ButtonGUI myWindow = new ButtonGUI(times);
+                   ButtonGUI myWindow = new ButtonGUI(times,true);
                }
             }
             if (button == searchButton && !event) {
@@ -57,7 +57,7 @@ public class SearchGUI extends JFrame implements ActionListener {
                 }
                 else{
                     this.dispose();
-                    ButtonGUI myWindow = new ButtonGUI(times);
+                    ButtonGUI myWindow = new ButtonGUI(times,false);
                 }
 
             }

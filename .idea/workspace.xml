@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4120fc20-ff49-451e-9068-faed2a61cbe7" name="Changes" comment="8" />
+    <list default="true" id="4120fc20-ff49-451e-9068-faed2a61cbe7" name="Changes" comment="8">
+      <change beforePath="$PROJECT_DIR$/src/ButtonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ButtonGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SearchGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SearchGUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
